@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+    <script src="ap.js"></script>
+    <style>
+        template {
+            display: none;
+        }
+
+        .corner {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+        }
+
+        .left {
+            left: 0px;
+        }
+
+        .right {
+            right: 0px;
+        }
+
+        .bottom {
+            bottom: 0px;
+
+        }
+
+        .top {
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+<!-- Aplication main DOMNode -->
+<div class="wrapper game-screen">
+    <div class="corner left top">
+        <component name="BettingLayer" template="BettingLayerGreen"></component>
+    </div>
+    <div class="corner right top">
+        <component name="BettingLayer" template="BettingLayerRed"></component>
+    </div>
+    <div class="corner right bottom">
+        <component name="TrafficLights" template="TrafficLightsTemplate" model="TrafficModel"></component>
+    </div>
+</div>
+
+<!-- Templates -->
+<script id="BettingLayerGreen" type="text/html">
+    <div class="BettingLayer" style="background:green;">
+        <div class="inner">Green</div>
+    </div>
+</script>
+<script id="BettingLayerRed" type="text/html">
+    <div class="BettingLayer" style="background:red;">
+        <div class="inner">Red</div>
+    </div>
+</script>
+<script id="TrafficLightsTemplate" type="text/html">
+    <div class="TrafficLights" style="background:blue;">
+        <div class="inner">Traffic</div>
+        <div class="status" data-bind-text="Status"></div>
+    </div>
+</script>
+</body>
+</html>
